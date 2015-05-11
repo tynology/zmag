@@ -1,0 +1,13 @@
+<p>
+  <strong>Title:</strong>
+  <%= @issue.title %>
+</p>
+
+<p>
+  <strong>Printdate:</strong>
+  <%= @issue.printdate %>
+</p>
+
+<%= link_to 'Edit', edit_magazine_issue_path(@issue.magazine, @issue) %> |
+<%= link_to 'Back', magazine_issues_path(@issue.magazine) %>
+

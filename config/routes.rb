@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  resources :magazines do
+    resources :issues
+    end
+
+
+
 
   devise_for :users
   root "pages#home"

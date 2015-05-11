@@ -11,7 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150429182601) do
+ActiveRecord::Schema.define(version: 20150507220325) do
+
+  create_table "issues", force: :cascade do |t|
+    t.string   "title"
+    t.date     "printdate"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "magazine_id"
+  end
+
+  add_index "issues", ["magazine_id"], name: "index_issues_on_magazine_id"
+
+  create_table "magazines", force: :cascade do |t|
+    t.string   "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "pins", force: :cascade do |t|
     t.string   "description"
