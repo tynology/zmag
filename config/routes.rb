@@ -1,8 +1,14 @@
 Rails.application.routes.draw do
 
+  resources :contacts
+
+  resources :organizations
+
   resources :magazines do
-    resources :issues
+    resources :issues do
+      resources :articles
     end
+  end
 
 
 
