@@ -1,12 +1,13 @@
 class IssuesController < ApplicationController
   respond_to :html, :xml, :json
   before_action :set_issue, only: [:show, :edit, :update, :destroy]
+  before_action :set_magazines
 
   # GET /issues
   # GET /issues.json
   def index
-    mag = Magazine.find(params[:magazine_id])
-    @issues = mag.issues
+    @magazine = Magazine.find(params[:magazine_id])
+    @issues = @magazine.issues
 
     respond_to do |format|
       format.html # index.html.erb
@@ -91,4 +92,8 @@ class IssuesController < ApplicationController
     def issue_params
       params.require(:issue).permit(:title, :printdate, :magazine_id)
     end
+
+    def set_magazines
+    @magazines = Magazine.all
+  end
 end

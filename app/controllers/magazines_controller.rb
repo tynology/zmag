@@ -1,5 +1,6 @@
 class MagazinesController < ApplicationController
   before_action :set_magazine, only: [:show, :edit, :update, :destroy]
+  before_action :set_magazines
 
   # GET /magazines
   # GET /magazines.json
@@ -71,4 +72,8 @@ class MagazinesController < ApplicationController
     def magazine_params
       params.require(:magazine).permit(:title)
     end
+
+    def set_magazines
+    @magazines = Magazine.all
+  end
 end
