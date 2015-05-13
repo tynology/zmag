@@ -35,6 +35,10 @@
     <%= f.label :print %><br>
     <%= f.check_box :print %>
   </div>
+    <div class="field">
+    <%= f.label :editor %><br>
+    <%= f.collection_select( :editor, User.all, :id, :email ) %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
