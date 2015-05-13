@@ -30,6 +30,11 @@ class ArticlesController < ApplicationController
 
   # GET /articles/1/edit
   def edit
+        #1st you retrieve the post thanks to params[:post_id]
+    magazine = Magazine.find(params[:magazine_id])
+    issue = magazine.issues.find(params[:issue_id])
+    #2nd you retrieve the comment thanks to params[:id]
+    @article = issue.articles.find(params[:id])
   end
 
   # POST /articles
