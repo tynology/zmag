@@ -24,21 +24,24 @@
     <%= f.text_field :description %>
   </div>
   <div class="field">
-    <%= f.label :copy %><br>
     <%= f.check_box :copy %>
-  </div>
+    <%= f.label :copy %>
+
+  </div><br>
   <div class="field">
-    <%= f.label :photo %><br>
     <%= f.check_box :photo %>
-  </div>
+    <%= f.label :photo %>
+
+  </div><br>
   <div class="field">
-    <%= f.label :print %><br>
     <%= f.check_box :print %>
-  </div>
+    <%= f.label :print %>
+
+  </div><br>
     <div class="field">
-    <%= f.label :editor %><br>
-    <%= f.collection_select( :editor, User.all, :id, :email ) %>
-  </div>
+    <%= f.label :editor %>    <%= f.collection_select( :editor, User.all, :id, :name ) %>
+  </div><br>
+
   <div class="actions">
     <%= f.submit %>
   </div>
