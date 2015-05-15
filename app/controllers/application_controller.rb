@@ -16,6 +16,7 @@ class ApplicationController < ActionController::Base
 private
   def set_magazines
     @magazines = Magazine.all
+    @articles = Article.all
   end
 
 end

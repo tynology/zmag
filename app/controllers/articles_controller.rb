@@ -78,7 +78,7 @@ class ArticlesController < ApplicationController
   def destroy
     @article.destroy
     respond_to do |format|
-      format.html { redirect_to articles_url, notice: 'Article was successfully desleted.' }
+      format.html { redirect_to magazine_issue_articles_url, notice: 'Article was successfully desleted.' }
       format.json { head :no_content }
     end
   end

@@ -36,5 +36,12 @@
   <% end %>
 </p>
 
+<p>
+  <strong>Ads:</strong>
+  <% @organization.ads.each do |a| %>
+  <br /><%= link_to a.name, a %> 
+  <% end %>
+</p>
+
 <%= link_to 'Edit', edit_organization_path(@organization) %> |
 <%= link_to 'Back', organizations_path %>

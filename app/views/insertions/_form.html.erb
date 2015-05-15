@@ -1,0 +1,29 @@
+<%= form_for([@insertion.ad, @insertion]) do |f| %>
+  <% if @insertion.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@insertion.errors.count, "error") %> prohibited this insertion from being saved:</h2>
+
+      <ul>
+      <% @insertion.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :price %><br>
+    <%= f.text_field :price %>
+  </div>
+  <div class="field">
+    <%= f.label :magazine_id %><br>
+    <%= f.collection_select( :magazine_id, Magazine.all, :id, :title ) %>
+  </div>
+  <div class="field">
+    <%= f.label :issue_id %><br>
+    <%= f.text_field :issue_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

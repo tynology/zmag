@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150513044933) do
+ActiveRecord::Schema.define(version: 20150515044828) do
+
+  create_table "ads", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "organization_id"
+  end
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
@@ -38,6 +45,15 @@ ActiveRecord::Schema.define(version: 20150513044933) do
   end
 
   add_index "contacts", ["organization_id"], name: "index_contacts_on_organization_id"
+
+  create_table "insertions", force: :cascade do |t|
+    t.integer  "price"
+    t.integer  "magazine_id"
+    t.integer  "issue_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "ad_id"
+  end
 
   create_table "issues", force: :cascade do |t|
     t.string   "title"

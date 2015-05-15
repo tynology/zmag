@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+
+  resources :ads do
+     resources :insertions
+   end
+
   resources :contacts
 
   resources :organizations
@@ -9,8 +14,6 @@ Rails.application.routes.draw do
       resources :articles
     end
   end
-
-
 
 
   devise_for :users

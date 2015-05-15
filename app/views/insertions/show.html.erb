@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @insertion.price %>
+</p>
+
+<p>
+  <strong>Magazine:</strong>
+  <%= @mag.title %>
+</p>
+
+<p>
+  <strong>Issue:</strong>
+  <%= @insertion.issue_id %>
+</p>
+
+<%= link_to 'Edit', edit_ad_insertion_path(@insertion.ad, @insertion) %> |
+<%= link_to 'Back', ad_insertions_path %>

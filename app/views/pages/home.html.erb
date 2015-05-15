@@ -1,11 +1,28 @@
+
+<h1>Welcome to ZMAG!</h1>
 <div class="jumbotron center">
-<h1>Welcome to my app!</h1>
 	<% if user_signed_in? %>
-          # do something
+          Holding Place for Something Awesome!
+          </div>
+          <h2>Editor Articles</h2><br />
+  <% Magazine.all.each do |m| %>
+ 		<h4><%= m.title %></h4>
+  		<% m.issues.each do |i| %>
+  			<h5><%= i.title %></h5>
+  <% i.articles.each do |e| %>
+  <% if e.editor == current_user.id %>
+  <%= link_to e.title, [e.issue.magazine, e.issue, e] %><br />
+  <% end %>
+  <% end %>
+  <% end %>
+  <% end %>
+
+
      <% else %>
+     <div class="jumbotron center">
        <p>
          <%= link_to "Log in", new_user_session_path, class: "btn btn-default btn-lg" %>
          <%= link_to "Sign up", new_user_registration_path, class: "btn btn-primary btn-lg" %>
        </p>
+       </div>
   <% end %>  
-</div>
